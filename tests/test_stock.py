@@ -14,3 +14,8 @@ def preparar():
 
 def test_stock_normal():
     assert stock_viveres(preparar(), "Albergue Castilla", "arroz") == 70
+
+
+def test_no_permite_inyeccion_sql():
+    texto_malicioso = "x' OR '1'='1"
+    assert stock_viveres(preparar(), "Albergue Castilla", texto_malicioso) == 0
