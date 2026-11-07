@@ -1,0 +1,9 @@
+#!/bin/sh
+# Regla del Procedimiento 3: no se permiten commits directos en main ni develop.
+rama=$(git rev-parse --abbrev-ref HEAD)
+if [ "$rama" = "main" ] || [ "$rama" = "develop" ]; then
+  echo "ERROR: no se permite hacer commit directo en '$rama'."
+  echo "Crea una rama feature/SCR-XXXX o hotfix/SCR-XXXX y pide la revisión."
+  echo "Solo el Gestor de Configuración integra a main con un merge aprobado por el CCB."
+  exit 1
+fi
