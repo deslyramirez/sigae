@@ -5,3 +5,5 @@ def stock_viveres(conn, albergue, producto):
         "WHERE albergue = ? AND producto = ?"
     )
     return conn.execute(sql, (albergue, producto)).fetchone()[0]
+
+# revisado: consulta de stock por albergue
